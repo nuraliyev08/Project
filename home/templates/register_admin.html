@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signup</title>
+  <link  rel="stylesheet" href="{% static 'assets/css/login5-style.css' %}">
+  </head>
+  <body>
+    <div id="preload-block">
+      <div class="square-block"></div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+          <div class="col-sm-5 authfy-panel-left">
+            <div class="brand-col">
+              <div class="headline">
+                <div class="brand-logo">
+                  <img src="{% static 'assets/images/brand-logo-white.png' %}" width="150" alt="brand-logo">
+                </div>
+                <p>Login using social media to get quick access</p>
+                <div class="row social-buttons">
+                  <div class="col-xs-4 col-sm-4 col-md-12">
+                    <a href="#" class="btn btn-block btn-facebook">
+                      <i class="fa fa-facebook"></i> <span class="hidden-xs hidden-sm">Signin with facebook</span>
+                    </a>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-12">
+                    <a href="#" class="btn btn-block btn-twitter">
+                      <i class="fa fa-twitter"></i> <span class="hidden-xs hidden-sm">Signin with twitter</span>
+                    </a>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-12">
+                    <a href="#" class="btn btn-block btn-google">
+                      <i class="fa fa-google-plus"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7 authfy-panel-right">
+            <div class="authfy-login">
+              <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li role="presentation"><a href="#">Student</a></li>
+                <li role="presentation"><a href="#">Admin</a></li>
+                <li role="presentation"><a href="#">Teacher</a></li>
+              </ul>
+              <div class="tab-content">
+                <div id="login" class="authfy-panel panel-login text-center tab-pane fade in active">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                      <form class="form-control" method="POST">
+                          {% csrf_token %}
+                        <div class="form-group wrap-input">
+                          <input type="text" class="form-control email" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group wrap-input">
+                          <div class="pwdMask">
+                            <input type="password" class="form-control password" name="password1" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="form-group wrap-input">
+                          <div class="pwdMask">
+                            <input type="password" class="form-control password" name="password2" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <button class="btn btn-lg btn-primary btn-block" type="submit">Siginup</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <script src="{% static 'assets/js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static  'assets/js/custom.js' %}"></script>
+  </body>
+</html>
