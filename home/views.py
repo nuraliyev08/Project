@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from home.forms import StudentSignUpForm, TeacherSignUpForm, AdminSignUpForm
-from home.models import News, Akar, Carousel, Phone, Category,  Search, Student, Teacher, Admin
+from home.models import News, Akar, Carousel, Phone, Category, Search, Student, Teacher, Admin, Generate
 from django.core.paginator import (Paginator, PageNotAnInteger, EmptyPage)
 from django.urls import reverse_lazy
 
@@ -202,4 +202,11 @@ def send_message(request):
             fail_silently=False,
         )
         return redirect('gmail')
+
+def generate(request):
+    generate = Generate.objects.all()
+    context = {
+        'generate': generate
+    }
+    return render(request, 'generate.html', context)
 

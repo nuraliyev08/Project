@@ -3,6 +3,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.validators import FileExtensionValidator
 from django.db.models import Count
 from django.contrib.auth.models import AbstractUser
+from django.utils.crypto import get_random_string
 
 class News(models.Model):
     title = models.CharField(max_length=255)
@@ -93,5 +94,18 @@ class Teacher(models.Model):
         return self.user.username
 
 
+class Generate(models.Model):
+    title = models.CharField(max_length=255)
+    code = models.CharField(max_length=255, blank=True, null=True, unique=True,)
 
+    def __str__(self):
+        return self.title
 
+    def save(self, *args, **kwargs):
+        code = self.code
+        if not code:
+            code = get_random_string(8).upper()
+        while Generate.objects.filter(code=code).exclude(pk=self.pk).exists():
+            code = get_random_string(8).upper()
+        self.code = code
+        super(Generate, self).save(*args, **kwargs)

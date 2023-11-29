@@ -19,4 +19,5 @@ urlpatterns = [
     path('login_form', views.login_form, name='login_form'),
     path('gmail', views.gmail, name='gmail'),
     path('send_message', views.send_message, name='send_message'),
+    path('generate', views.generate, name='generate')
 ]

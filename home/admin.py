@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import News, Akar, Carousel, Phone, Category, Product, Search, User, Admin, Student, Teacher
+from home.models import News, Akar, Carousel, Phone, Category, Product, Search, User, Admin, Student, Teacher, Generate
 
 admin.site.register(News)
 admin.site.register(Akar)
@@ -12,3 +12,4 @@ admin.site.register(User)
 admin.site.register(Admin)
 admin.site.register(Student)
 admin.site.register(Teacher)
+admin.site.register(Generate)
